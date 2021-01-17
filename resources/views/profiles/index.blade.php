@@ -12,7 +12,7 @@
             <div class="col-9 pt-5 ">
                 <div class=" d-flex justify-content-between align-baseline">
                     <div class="d-flex align-items-center pb-1">
-                        <div class="font-weight-bold mr-4 h1 pt-2"> Keivanmi</div>
+                        <div class="font-weight-bold mr-4 h1 pt-2"> Keivanmi </div>
                         <button class="btn btn-primary"> Follow</button>
                     </div> <a href="#"> Add New Post</a> </div>
 
