@@ -39,10 +39,12 @@ class ProfilesController2 extends Controller
             $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);
             $image->save();
 
+            $imageArray = ['image' => $imagePath];
+
             //update db
             auth()->user()->profile->update(array_merge(
                 $data,
-                ['image' => $imagePath]
+                $imageArray ?? []
             ));
         } else
             auth()->user()->profile->update($data);
