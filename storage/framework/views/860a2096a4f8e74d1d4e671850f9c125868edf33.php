@@ -14,10 +14,14 @@
                     <button class="btn btn-primary"> Follow</button>
                     <!-- link to new post page -->
                 </div>
-                <a href="/p/create"> Add New Post</a>
+                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('update',$user->profile)): ?>
+                    <a href="/p/create"> Add New Post</a>
+                <?php endif; ?>
             </div>
             <!-- link to edit profile page -->
-            <a href="/profile/<?php echo e($user->id); ?>/edit"> Edit Profile </a>
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('update',$user->profile)): ?>
+                    <a href="/profile/<?php echo e($user->id); ?>/edit">Edit Profile</a>
+            <?php endif; ?>
 
             <div class="d-flex">
                 <!-- count the number of posts -->

@@ -16,10 +16,14 @@
                     <button class="btn btn-primary"> Follow</button>
                     <!-- link to new post page -->
                 </div>
-                <a href="/p/create"> Add New Post</a>
+                @can('update',$user->profile)
+                    <a href="/p/create"> Add New Post</a>
+                @endcan
             </div>
             <!-- link to edit profile page -->
-            <a href="/profile/{{$user->id}}/edit"> Edit Profile </a>
+            @can('update',$user->profile)
+                    <a href="/profile/{{$user->id}}/edit">Edit Profile</a>
+            @endcan
 
             <div class="d-flex">
                 <!-- count the number of posts -->

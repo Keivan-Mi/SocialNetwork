@@ -26,6 +26,7 @@ Route::get('/p/{post}', 'PostsController@show');
 //store the post in DB
 Route::post('/p', 'PostsController@store');
 
+//show profile
 Route::get('/profile/{user}', 'ProfilesController2@index')->name('profile.show');
 
 // edit page
