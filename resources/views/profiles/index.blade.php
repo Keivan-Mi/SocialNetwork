@@ -5,7 +5,7 @@
     <div class="row">
         <!--Profile image -->
         <div class="col-3 p-5">
-            <img src="/img/profileImg.jpg" class="rounded-circle w-100" alt="Not found!!!">
+            <img src="/storage/{{$user->profile->image}}" class="rounded-circle w-100" alt="Not found!!!">
         </div>
 
         <!--Profile info section(post + followers + following + edit and follow buttons -->
