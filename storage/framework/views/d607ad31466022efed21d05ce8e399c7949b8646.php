@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="container">
         <div class="row">
             <!--Profile image -->
@@ -12,7 +10,7 @@
             <div class="col-9 pt-5 ">
                 <div class=" d-flex justify-content-between align-baseline">
                     <div class="d-flex align-items-center pb-1">
-                        <div class="font-weight-bold mr-4 h1 pt-2"> {{$user->username}} </div>
+                        <div class="font-weight-bold mr-4 h1 pt-2"> <?php echo e($user->username); ?> </div>
                         <button class="btn btn-primary"> Follow</button>
                     </div> <a href="#"> Add New Post</a> </div>
 
@@ -25,9 +23,9 @@
                 </div>
 
                 <!--Profile description section -->
-                <div class="pt-3 font-weight-bold">{{$user->profile->title}}</div>
-                <div> {{$user->profile->description}} </div>
-                <div><a href="#" class="font-weight-light"> {{$user->profile->url}} </a></div>
+                <div class="pt-3 font-weight-bold"><?php echo e($user->profile->title); ?></div>
+                <div> <?php echo e($user->profile->description); ?> </div>
+                <div><a href="#" class="font-weight-light"> <?php echo e($user->profile->url); ?> </a></div>
             </div>
         </div>
 
@@ -46,4 +44,6 @@
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\moham\SocialNetwork\resources\views/profiles/index.blade.php ENDPATH**/ ?>
