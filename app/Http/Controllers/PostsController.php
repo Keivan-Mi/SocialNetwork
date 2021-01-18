@@ -27,7 +27,7 @@ class PostsController extends Controller
     {
         $data = request()->validate([
             'caption' => 'required',
-            'image' => ['required', 'image'],
+            'image' => ['required' , 'image'],
         ]);
 
         // store our new posts to directory
@@ -45,5 +45,11 @@ class PostsController extends Controller
         ]);
 
         return redirect('/profile/' . auth()->user()->id);
+    }
+
+    //show each posts clicked on it
+    public function show(\App\Post $post)
+    {
+        return view('posts.show', compact('post'));
     }
 }

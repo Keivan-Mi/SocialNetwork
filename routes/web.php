@@ -19,6 +19,10 @@ Auth::routes();
 
 //"create new post" page
 Route::get('/p/create', 'PostsController@create');
+
+// show post and caption
+Route::get('/p/{post}', 'PostsController@show');
+
 //store the post in DB
 Route::post('/p', 'PostsController@store');
 
