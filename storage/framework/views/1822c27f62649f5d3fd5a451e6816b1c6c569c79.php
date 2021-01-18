@@ -12,12 +12,14 @@
                     <div class="d-flex align-items-center pb-1">
                         <div class="font-weight-bold mr-4 h1 pt-2"> <?php echo e($user->username); ?> </div>
                         <button class="btn btn-primary"> Follow</button>
-                    </div> <a href="#"> Add New Post</a> </div>
+                    <!-- link to new post page -->
+                    </div> <a href="/p/create"> Add New Post</a> </div>
 
                 <a href="#"> Edit Profile </a>
 
                 <div class="d-flex">
-                    <div class="pr-3"><strong> 100 </strong> posts</div>
+                    <!-- count the number of posts -->
+                    <div class="pr-3"><strong><?php echo e($user->posts->count()); ?></strong> posts</div>
                     <div class="pr-3"><strong>25k</strong> followers</div>
                     <div class="pr-3"><strong>200</strong> following</div>
                 </div>
@@ -30,19 +32,16 @@
         </div>
 
         <!--Show posts (at first, just using 3 images  -->
-        <div class="row">
-            <div class="col-4 pt-4">
-                <a href="#"> <img src="/img/profileImg.jpg" class="w-100" alt="Not Found!!"> </a>
+        <div class="row pt-5">
+        <!-- show all posts of this user from DB -->
+        <?php $__currentLoopData = $user->posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="col-4 pb-4">
+                <a href="/p/<?php echo e($post->id); ?>">
+                    <img src="/storage/<?php echo e($post->image); ?>" class="w-100">
+                </a>
             </div>
-
-            <div class="col-4 pt-4">
-                <a href="#"> <img src="/img/profileImg.jpg" class="w-100" alt="Not Found!!"> </a>
-            </div>
-
-            <div class="col-4 pt-4">
-                <a href="#"> <img src="/img/profileImg.jpg" class="w-100" alt="Not Found!!"> </a>
-            </div>
-        </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    </div>
     </div>
 <?php $__env->stopSection(); ?>
 

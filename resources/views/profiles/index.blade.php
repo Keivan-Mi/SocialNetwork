@@ -14,12 +14,14 @@
                     <div class="d-flex align-items-center pb-1">
                         <div class="font-weight-bold mr-4 h1 pt-2"> {{$user->username}} </div>
                         <button class="btn btn-primary"> Follow</button>
-                    </div> <a href="#"> Add New Post</a> </div>
+                    <!-- link to new post page -->
+                    </div> <a href="/p/create"> Add New Post</a> </div>
 
                 <a href="#"> Edit Profile </a>
 
                 <div class="d-flex">
-                    <div class="pr-3"><strong> 100 </strong> posts</div>
+                    <!-- count the number of posts -->
+                    <div class="pr-3"><strong>{{ $user->posts->count()}}</strong> posts</div>
                     <div class="pr-3"><strong>25k</strong> followers</div>
                     <div class="pr-3"><strong>200</strong> following</div>
                 </div>
@@ -32,18 +34,15 @@
         </div>
 
         <!--Show posts (at first, just using 3 images  -->
-        <div class="row">
-            <div class="col-4 pt-4">
-                <a href="#"> <img src="/img/profileImg.jpg" class="w-100" alt="Not Found!!"> </a>
+        <div class="row pt-5">
+        <!-- show all posts of this user from DB -->
+        @foreach($user->posts as $post)
+            <div class="col-4 pb-4">
+                <a href="/p/{{ $post->id }}">
+                    <img src="/storage/{{ $post->image }}" class="w-100">
+                </a>
             </div>
-
-            <div class="col-4 pt-4">
-                <a href="#"> <img src="/img/profileImg.jpg" class="w-100" alt="Not Found!!"> </a>
-            </div>
-
-            <div class="col-4 pt-4">
-                <a href="#"> <img src="/img/profileImg.jpg" class="w-100" alt="Not Found!!"> </a>
-            </div>
-        </div>
+        @endforeach
+    </div>
     </div>
 @endsection

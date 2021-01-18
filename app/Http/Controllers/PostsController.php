@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class PostsController extends Controller
 {
+    // only when user loged in can add new post
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function create()
     {
         return view('posts.create');
@@ -20,16 +27,23 @@ class PostsController extends Controller
     {
         $data = request()->validate([
             'caption' => 'required',
-            'image' => ['required'],
+            'image' => ['required', 'image'],
         ]);
 
-        /*
-        / Authenticate the user 
-        / who wants to add new post
-        */
+        // store our new posts to directory
+        $imagePath = request('image')->store('uploads' , 'public');
+        
+        // crop posts in square form
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+        $image->save();
 
-        auth()->user()->posts()->create($data);
+        // Authenticate the user 
+        // who wants to add new post
+        auth()->user()->posts()->create([
+            'caption' => $data['caption'],
+            'image' => $imagePath,
+        ]);
 
-        dd(request()->all());
+        return redirect('/profile/' . auth()->user()->id);
     }
 }

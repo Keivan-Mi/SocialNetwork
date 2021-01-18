@@ -38,9 +38,10 @@ class User extends Authenticatable
     ];
 
     //a user has many posts
+    //make the order of posts
     public function posts()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class)->orderBy('created_at' , 'DESC');
     }
 
     public function profile()
