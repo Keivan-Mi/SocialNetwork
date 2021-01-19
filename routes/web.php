@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::post('follow/{user}', 'FollowsController@store');
+
 //"create new post" page
 Route::get('/p/create', 'PostsController@create');
 

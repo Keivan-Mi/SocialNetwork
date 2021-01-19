@@ -13,7 +13,7 @@
             <div class=" d-flex justify-content-between align-items-baseline">
                 <div class="d-flex align-items-center pb-1">
                     <div class="font-weight-bold mr-4 h1 pt-2"> {{$user->username}} </div>
-                    <button class="btn btn-primary"> Follow</button>
+                        <follow-button user-id="{{ $user->id }}" follow="{{ $follows }}"></follow-button>
                     <!-- link to new post page -->
                 </div>
                 @can('update',$user->profile)
@@ -28,8 +28,8 @@
             <div class="d-flex">
                 <!-- count the number of posts -->
                 <div class="pr-3"><strong>{{ $user->posts->count()}}</strong> posts</div>
-                <div class="pr-3"><strong>25k</strong> followers</div>
-                <div class="pr-3"><strong>200</strong> following</div>
+                <div class="pr-3"><strong>{{ $user->profile->followers->count() }}</strong> followers</div>
+                <div class="pr-3"><strong>{{ $user->following->count() }}</strong> following</div>
             </div>
 
             <!--Profile description section -->
