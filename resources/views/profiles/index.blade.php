@@ -13,7 +13,7 @@
             <div class=" d-flex justify-content-between align-items-baseline">
                 <div class="d-flex align-items-center pb-1">
                     <div class="font-weight-bold mr-4 h1 pt-2"> {{$user->username}} </div>
-                        <follow-button user-id="{{ $user->id }}" follow="{{ $follows }}"></follow-button>
+                        <follow-button user-id="{{$user->id}}" follows="{{$follows}}"></follow-button>
                     <!-- link to new post page -->
                 </div>
                 @can('update',$user->profile)

@@ -11,28 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
-Route::post('follow/{user}', 'FollowsController@store');
+//Order is important
 
-//"create new post" page
+//Post
+Route::get('/', 'PostsController@index');
 Route::get('/p/create', 'PostsController@create');
-
-// show post and caption
+Route::post('/p', 'PostsController@store');
 Route::get('/p/{post}', 'PostsController@show');
 
-//store the post in DB
-Route::post('/p', 'PostsController@store');
+//Follow
+Route::post('follow/{user}', 'FollowsController@store');
 
-//show profile
-Route::get('/profile/{user}', 'ProfilesController2@index')->name('profile.show');
 
-// edit page
-Route::get('/profile/{user}/edit', 'ProfilesController2@edit')->name('profile.edit');
+//profile
+Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show');
+Route::get('/profile/{user}/edit', 'ProfilesController@edit')->name('profile.edit');
+Route::patch('/profile/{user}', 'ProfilesController@update')->name('profile.update');
 
-//update page
-Route::patch('/profile/{user}', 'ProfilesController2@update')->name('profile.update');
