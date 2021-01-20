@@ -8,14 +8,15 @@ use Intervention\Image\Facades\Image;
 
 class PostsController extends Controller
 {
-    // only when user loged in can add new post
+    // only when user signed in, can add new post
     public function __construct()
     {
         $this->middleware('auth');
     }
 
     //Show post from other users at home
-    public function index(){
+    public function index()
+    {
         //Get all of user id
         $users = auth()->user()->following()->pluck('profiles.user_id');
 
@@ -24,8 +25,9 @@ class PostsController extends Controller
         //Point : paginate() help us to get just number of post from each person
         $posts = Post::whereIn('user_id', $users)->latest()->paginate(5);
 
-        return view ('posts.index', compact('posts'));
+        return view('posts.index', compact('posts'));
     }
+
 
     public function create()
     {
@@ -41,11 +43,11 @@ class PostsController extends Controller
     {
         $data = request()->validate([
             'caption' => 'required',
-            'image' => ['required' , 'image'],
+            'image' => ['required', 'image'],
         ]);
 
         // store our new posts to directory
-        $imagePath = request('image')->store('uploads' , 'public');
+        $imagePath = request('image')->store('uploads', 'public');
 
         // crop posts in square form
         $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);

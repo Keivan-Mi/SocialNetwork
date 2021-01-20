@@ -13,13 +13,13 @@ window.Vue = require('vue');
  * Vue components. It will recursively scan this directory for the Vue
  * components and automatically register them with their "basename".
  *
- * Eg. ./components/FollowButton.vue -> <example-component></example-component>
+ * Eg. ./components/followButton.vue -> <example-component></example-component>
  */
 
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('follow-button', require('./components/FollowButton.vue').default);
+Vue.component('follow-button', require('./components/followButton.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

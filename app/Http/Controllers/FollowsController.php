@@ -14,8 +14,19 @@ class FollowsController extends Controller
         $this->middleware ('auth');
     }
 
+    //------------------------------------------------------------
 
+    //When the user put the follow or unfollow button
     public function store(User $user){
-        return auth()->user()->following()->toggle($user->profile);
+        //Make the relationship(or destroy it!)
+        auth()->user()->following()->toggle($user->profile);
+
+        //This array used for updating the values on profile page
+        $followInfo=array(
+            "posts"     => $user->posts->count(),
+            "follower"  => $user->profile->followers->count(),
+            "following" => $user->following->count());
+
+        return $followInfo;
     }
 }

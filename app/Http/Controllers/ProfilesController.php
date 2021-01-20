@@ -4,16 +4,20 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Intervention\Image\Facades\Image;
 
 class ProfilesController extends Controller
 {
-    public function index(User $user)
-    {
+    public function index(User $user){
+        //Used for showing follow or unfolloow
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
 
-        return view('profiles.index', compact('user', 'follows'));
+        //Used to prevent from showing Follow_Button for users
+        $ownProfile = (Auth::id() === $user->getAttribute('id')) ? true : false;
+
+        return view('profiles.index', compact('user', 'follows' , 'ownProfile'));
     }
 
     public function edit(User $user)
