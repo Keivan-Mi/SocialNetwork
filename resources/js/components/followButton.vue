@@ -21,9 +21,6 @@
     export default {
         props: ['userId', 'follow', 'username', 'posts', 'followers', 'following', 'ownprofile'],
 
-        mounted() {
-            console.log(this.ownprofile_d)
-        },
         data: function () {
             return {
                 status: this.follow,

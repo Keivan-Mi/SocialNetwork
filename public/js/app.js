@@ -1976,9 +1976,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['userId', 'follow', 'username', 'posts', 'followers', 'following', 'ownprofile'],
-  mounted: function mounted() {
-    console.log(this.ownprofile_d);
-  },
   data: function data() {
     return {
       status: this.follow,
