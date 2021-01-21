@@ -20,12 +20,15 @@ class PostsController extends Controller
         //Get all of user id
         $users = auth()->user()->following()->pluck('profiles.user_id');
 
+        //Get the user
+        $user = auth()->user();
+
         //Get the user posts
         //Point : latest() => sorted by created_time
         //Point : paginate() help us to get just number of post from each person
         $posts = Post::whereIn('user_id', $users)->latest()->paginate(5);
 
-        return view('posts.index', compact('posts'));
+        return view('posts.index', compact('posts' , 'user'));
     }
 
 

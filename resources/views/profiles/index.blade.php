@@ -10,7 +10,7 @@
                 </div>
 
                 <!--Profile info section _ using View.js (post + followers + following) -->
-                <div class="row">
+                <div class="row d-inline-block">
                     <follow-button
                         user-id="{{ $user->id }}"
                         follow="{{ $follows }}"
@@ -22,7 +22,7 @@
                     </follow-button>
 
                     <!--Profile description section -->
-                    <div>
+                    <div class="pt-2">
                         <div class="font-weight-bold ">{{$user->profile->title}}</div>
                         <div> {{$user->profile->description}} </div>
                         <div><a href="#" class="font-weight-light"> {{$user->profile->url}} </a></div>

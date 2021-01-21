@@ -2,6 +2,9 @@
 
 @section('content')
     <div class="container">
+        <div class="pt-5" style="float: right" >
+           <a  class="btn btn-dark"  href="/profile/{{$user->id}}"> Profile </a>
+        </div>
         @foreach($posts as $post )
             <div class="row pt-5">
                 <div class="col-10 offset-2">

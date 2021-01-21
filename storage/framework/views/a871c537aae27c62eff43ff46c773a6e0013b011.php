@@ -8,7 +8,7 @@
                 </div>
 
                 <!--Profile info section _ using View.js (post + followers + following) -->
-                <div class="row">
+                <div class="row d-inline-block">
                     <follow-button
                         user-id="<?php echo e($user->id); ?>"
                         follow="<?php echo e($follows); ?>"
@@ -20,7 +20,7 @@
                     </follow-button>
 
                     <!--Profile description section -->
-                    <div>
+                    <div class="pt-2">
                         <div class="font-weight-bold "><?php echo e($user->profile->title); ?></div>
                         <div> <?php echo e($user->profile->description); ?> </div>
                         <div><a href="#" class="font-weight-light"> <?php echo e($user->profile->url); ?> </a></div>

@@ -1,5 +1,8 @@
 <?php $__env->startSection('content'); ?>
     <div class="container">
+        <div class="pt-5" style="float: right" >
+           <a  class="btn btn-dark"  href="/profile/<?php echo e($user->id); ?>"> Profile </a>
+        </div>
         <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="row pt-5">
                 <div class="col-10 offset-2">
