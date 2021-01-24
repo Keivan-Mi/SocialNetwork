@@ -10,7 +10,7 @@
                 <div class="form-group row">
                     <label for="title" class="col-md-4 col-form-label">Title</label>
 
-                    <input id="title" type="text" class="ml-2 form-control<?php echo e($errors->has('title') ? ' is-invalid' : ''); ?>" name="title" value="<?php echo e(old('title') ?? $user->profile->title); ?>" autocomplete="title" autofocus>
+                    <input id="title" type="text" class="ml-2 form-control<?php echo e($errors->has('title') ? 'is-invalid' : ''); ?>" name="title" value="<?php echo e(old('title') ?? $user->profile->title); ?>" autocomplete="title" autofocus>
 
                     <?php if($errors->has('title')): ?>
                     <span class="invalid-feedback" role="alert">

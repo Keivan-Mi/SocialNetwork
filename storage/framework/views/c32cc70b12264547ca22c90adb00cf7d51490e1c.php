@@ -1,17 +1,17 @@
+    
 <?php $__env->startSection('content'); ?>
+    
     <div class="container">
-        <div class="pt-5" style="float: right" >
-           <a  class="btn btn-dark"  href="/profile/<?php echo e($user->id); ?>"> Profile </a>
-        </div>
+        
         <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="row" >
                  
             <div class="col-9 offset-2 mb-5 border">
                 <span>
-                <img src="<?php echo e($post->user->profile->profileImage()); ?>" class="rounded-circle w-100 mt-2 mb-2 mr-2" style="max-width: 60px; border: 4px solid #ccc; ">
-                <a style="text-decoration:none" href="/profile/<?php echo e($post->user->id); ?>">
-                    <span class="text-dark "><?php echo e($post->user->username); ?></span>
-                </a>
+                    <img src="<?php echo e($post->user->profile->profileImage()); ?>" class="rounded-circle w-100 mt-2 mb-2 mr-2" style="max-width: 60px; border: 4px solid #ccc; ">
+                    <a style="text-decoration:none" href="/profile/<?php echo e($post->user->id); ?>">
+                        <span class="text-dark "><?php echo e($post->user->username); ?></span>
+                    </a>
                 </span>
                 <a href="/profile/<?php echo e($post->user->id); ?>">
                     <img src="/storage/<?php echo e($post->image); ?>" class="w-100 pb-2">

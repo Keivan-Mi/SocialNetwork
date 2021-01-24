@@ -6,9 +6,9 @@
             <!--Profile image -->
             <div class="d-flex">
                 <div class="col-3 p-5">
-                    <img src="{{$user->profile->profileImage()}}" class="rounded-circle w-100" alt="Not found!!!">
+                    <img src="{{$user->profile->profileImage()}}" class="w-100 rounded-circle" alt="Not found!!!">
                 </div>
-
+                
                 <!--Profile info section _ using View.js (post + followers + following) -->
                 <div class="row d-inline-block">
                     <follow-button

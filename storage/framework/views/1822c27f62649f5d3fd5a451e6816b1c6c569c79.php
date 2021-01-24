@@ -4,9 +4,9 @@
             <!--Profile image -->
             <div class="d-flex">
                 <div class="col-3 p-5">
-                    <img src="<?php echo e($user->profile->profileImage()); ?>" class="rounded-circle w-100" alt="Not found!!!">
+                    <img src="<?php echo e($user->profile->profileImage()); ?>" class="w-100 rounded-circle" alt="Not found!!!">
                 </div>
-
+                
                 <!--Profile info section _ using View.js (post + followers + following) -->
                 <div class="row d-inline-block">
                     <follow-button
@@ -46,6 +46,13 @@
                         <a href="/p/<?php echo e($post->id); ?>">
                             <img src="/storage/<?php echo e($post->image); ?>" class="w-100"alt="not found">
                         </a>
+                        <div class="mt-2">
+                            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('delete', $user->profile)): ?>
+                            <a href="<?php echo e(route('post.delete',['post_id' => $post->id ])); ?>">
+                                <img src="https://img.icons8.com/fluent-systems-regular/28/000000/delete-trash--v3.png"/>
+                            </a>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
