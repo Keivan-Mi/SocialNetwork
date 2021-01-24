@@ -37613,6 +37613,7 @@ var render = function() {
           _vm.ownprofile_d === ""
             ? _c("button", {
                 staticClass: "btn btn-primary ml-4",
+                staticStyle: { "background-color": "black", border: "black" },
                 domProps: { textContent: _vm._s(_vm.buttonText) },
                 on: { click: _vm.followUser }
               })

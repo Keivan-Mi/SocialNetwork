@@ -66,7 +66,6 @@ class ProfilePolicy
      */
     public function delete(User $user, Profile $profile)
     {
-        return $user->id == $profile->user_id;
     }
 
     /**

@@ -25,7 +25,7 @@
                     <div class="pt-2">
                         <div class="font-weight-bold ">{{$user->profile->title}}</div>
                         <div> {{$user->profile->description}} </div>
-                        <div><a href="#" class="font-weight-light"> {{$user->profile->url}} </a></div>
+                        <div><a target="_blank" href="{{ $user->profile->url }}" class="font-weight-light"> {{$user->profile->url}} </a></div>
                     </div>
                 </div>
 
@@ -48,13 +48,6 @@
                         <a href="/p/{{ $post->id }}">
                             <img src="/storage/{{ $post->image }}" class="w-100"alt="not found">
                         </a>
-                        <div class="mt-2">
-                            @can('delete', $user->profile)
-                            <a href="{{ route('post.delete',['post_id' => $post->id ]) }}">
-                                <img src="https://img.icons8.com/fluent-systems-regular/28/000000/delete-trash--v3.png"/>
-                            </a>
-                            @endcan
-                        </div>
                     </div>
                 </div>
                 @endforeach

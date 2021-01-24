@@ -4,31 +4,29 @@
            <a  class="btn btn-dark"  href="/profile/<?php echo e($user->id); ?>"> Profile </a>
         </div>
         <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div class="row pt-5">
-                <div class="col-10 offset-2">
-                    <div class="d-flex align-items-center ">
-                        <div class="pr-3 ml-3">
-                            <img src="<?php echo e($post->user->profile->profileImage()); ?>" alt="Not found!!!"
-                                 class="rounded-circle w-100" style="max-width: 50px">
-                        </div>
-                        <div class="font-weight-bold">
-                            <a href="/profile/<?php echo e($post->user->id); ?>">
-                                <span class="text-dark"> <?php echo e($post->user->username); ?> </span>
-                            </a>
-                        </div>
-                    </div>
+        <div class="row" >
+                 
+            <div class="col-9 offset-2 mb-5 border">
+                <span>
+                <img src="<?php echo e($post->user->profile->profileImage()); ?>" class="rounded-circle w-100 mt-2 mb-2 mr-2" style="max-width: 60px; border: 4px solid #ccc; ">
+                <a style="text-decoration:none" href="/profile/<?php echo e($post->user->id); ?>">
+                    <span class="text-dark "><?php echo e($post->user->username); ?></span>
+                </a>
+                </span>
+                <a href="/profile/<?php echo e($post->user->id); ?>">
+                    <img src="/storage/<?php echo e($post->image); ?>" class="w-100 pb-2">
+                </a>
+                <p>
+                <span class="font-weight-bold">
+                    <a style="text-decoration:none" href="/profile/<?php echo e($post->user->id); ?>">
+                        <span class="text-dark "><?php echo e($post->user->username); ?></span>
+                    </a>
+                </span> : <?php echo e($post->caption); ?>
 
-                    <hr class="m-1 " style="width: 64.5%">
-
-                    <div class="col-8 pt-2">
-                        <a href="/profile/<?php echo e($post->user->id); ?>">
-                            <img src="/storage/<?php echo e($post->image); ?> " alt="Not found!" class="w-100">
-                        </a>
-                    </div>
-
-                </div>
+                </p>
             </div>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </div>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
         <div class="row pt-lg-5">
             <div class="col-10 offset-2">

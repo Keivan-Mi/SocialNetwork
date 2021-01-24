@@ -23,7 +23,7 @@
                     <div class="pt-2">
                         <div class="font-weight-bold "><?php echo e($user->profile->title); ?></div>
                         <div> <?php echo e($user->profile->description); ?> </div>
-                        <div><a href="#" class="font-weight-light"> <?php echo e($user->profile->url); ?> </a></div>
+                        <div><a target="_blank" href="<?php echo e($user->profile->url); ?>" class="font-weight-light"> <?php echo e($user->profile->url); ?> </a></div>
                     </div>
                 </div>
 
@@ -46,13 +46,6 @@
                         <a href="/p/<?php echo e($post->id); ?>">
                             <img src="/storage/<?php echo e($post->image); ?>" class="w-100"alt="not found">
                         </a>
-                        <div class="mt-2">
-                            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('delete', $user->profile)): ?>
-                            <a href="<?php echo e(route('post.delete',['post_id' => $post->id ])); ?>">
-                                <img src="https://img.icons8.com/fluent-systems-regular/28/000000/delete-trash--v3.png"/>
-                            </a>
-                            <?php endif; ?>
-                        </div>
                     </div>
                 </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

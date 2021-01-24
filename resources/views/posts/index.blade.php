@@ -5,32 +5,29 @@
         <div class="pt-5" style="float: right" >
            <a  class="btn btn-dark"  href="/profile/{{$user->id}}"> Profile </a>
         </div>
-        @foreach($posts as $post )
-            <div class="row pt-5">
-                <div class="col-10 offset-2">
-                    <div class="d-flex align-items-center ">
-                        <div class="pr-3 ml-3">
-                            <img src="{{$post->user->profile->profileImage()}}" alt="Not found!!!"
-                                 class="rounded-circle w-100" style="max-width: 50px">
-                        </div>
-                        <div class="font-weight-bold">
-                            <a href="/profile/{{$post->user->id}}">
-                                <span class="text-dark"> {{$post->user->username}} </span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <hr class="m-1 " style="width: 64.5%">
-
-                    <div class="col-8 pt-2">
-                        <a href="/profile/{{$post->user->id}}">
-                            <img src="/storage/{{$post->image}} " alt="Not found!" class="w-100">
-                        </a>
-                    </div>
-
-                </div>
+        @foreach($posts as $post)
+        <div class="row" >
+                 
+            <div class="col-9 offset-2 mb-5 border">
+                <span>
+                <img src="{{ $post->user->profile->profileImage() }}" class="rounded-circle w-100 mt-2 mb-2 mr-2" style="max-width: 60px; border: 4px solid #ccc; ">
+                <a style="text-decoration:none" href="/profile/{{ $post->user->id }}">
+                    <span class="text-dark ">{{ $post->user->username }}</span>
+                </a>
+                </span>
+                <a href="/profile/{{ $post->user->id }}">
+                    <img src="/storage/{{ $post->image }}" class="w-100 pb-2">
+                </a>
+                <p>
+                <span class="font-weight-bold">
+                    <a style="text-decoration:none" href="/profile/{{ $post->user->id }}">
+                        <span class="text-dark ">{{ $post->user->username }}</span>
+                    </a>
+                </span> : {{ $post->caption }}
+                </p>
             </div>
-        @endforeach
+        </div>
+    @endforeach
 
         <div class="row pt-lg-5">
             <div class="col-10 offset-2">

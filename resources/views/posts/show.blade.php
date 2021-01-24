@@ -1,37 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container p-5 mb-5 border" >
     <div class="row">
         <div class="col-8">
-            <img src="/storage/{{ $post->image }}" class="w-100">
+            <img src="/storage/{{ $post->image }}" class="w-100" alt="">
         </div>
         <div class="col-4">
-            <div>
-                <div class="d-flex align-items-center">
                     <div class="pr-3">
-                        <img src="{{ $post->user->profile->profileImage()}}" class="rounded-circle w-100" style="max-width: 40px;">
+                        <img src="{{ $post->user->profile->profileImage() }}" class="rounded-circle w-100" style="max-width: 60px; border: 4px solid #ccc">
+                        <a style="text-decoration:none;" href="/profile/{{ $post->user->id }}" class="text-dark font-weight-bold pl-2">{{ $post->user->username }}</a>
                     </div>
-                    <div>
-                        <div class="font-weight-bold">
-                            <a href="/profile/{{ $post->user->id }}">
-                                <span class="text-dark">{{ $post->user->username }}</span>
-                            </a>
-                            <a href="#" class="pl-3">Follow</a>
-                        </div>
-                    </div>
-                </div>
 
                 <hr>
 
                 <p>
-                    <span class="font-weight-bold">
-                        <a href="/profile/{{ $post->user->id }}">
-                            <span class="text-dark">{{ $post->user->username }}</span>
-                        </a>
-                    </span> {{ $post->caption }}
+                    {{ $post->caption }}
                 </p>
-            </div>
         </div>
     </div>
 </div>
