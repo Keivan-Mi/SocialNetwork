@@ -37606,7 +37606,7 @@ var render = function() {
       { staticClass: " d-flex justify-content-between align-items-baseline" },
       [
         _c("div", { staticClass: "d-flex align-items-center pb-1" }, [
-          _c("div", { staticClass: "font-weight-bold mr-4 h1 pt-2" }, [
+          _c("div", { staticClass: "font-weight-bold mr-4 h4 pt-2" }, [
             _vm._v(" " + _vm._s(this.username))
           ]),
           _vm._v(" "),
@@ -49978,8 +49978,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp64\www\IE\SocialNetwork\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\wamp64\www\IE\SocialNetwork\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\user\Desktop\SocialNetwork\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\user\Desktop\SocialNetwork\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

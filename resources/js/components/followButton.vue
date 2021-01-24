@@ -3,7 +3,7 @@
         <!-- Show username and button -->
         <div class=" d-flex justify-content-between align-items-baseline">
             <div class="d-flex align-items-center pb-1">
-                <div class="font-weight-bold mr-4 h1 pt-2"> {{this.username}}</div>
+                <div class="font-weight-bold mr-4 h4 pt-2"> {{this.username}}</div>
                 <button v-if=" ownprofile_d === ''" class="btn btn-primary ml-4"  @click="followUser" v-text="buttonText"></button>
             </div>
         </div>

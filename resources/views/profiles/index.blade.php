@@ -32,8 +32,9 @@
                 <!--Edit profile and Add post section -->
                 <div class="m-auto">
                     @can('update',$user->profile)
-                        <a class="list-group-item" href="/profile/{{$user->id}}/edit">Edit Profile</a>
-                        <a class="list-group-item" href="/p/create"> Add New Post</a>
+                    <a href="/profile/{{ $user->id }}/edit" class="btn btn-light mr-1" style="background-color:white; border:none" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><img src="https://img.icons8.com/material-rounded/24/000000/settings.png"/></a>
+                    <a href="/" class="btn btn-light mr-1" style="background-color:white; border:none"><img src="https://img.icons8.com/fluent-systems-filled/24/000000/home.png"/></a>
+                    <a href="/p/create" class="btn btn-light mr-1" style="background-color:white; border:none"><img src="https://img.icons8.com/metro/26/000000/plus-2-math.png"/></a>
                     @endcan
                 </div>
             </div>

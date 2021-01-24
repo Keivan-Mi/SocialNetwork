@@ -29,8 +29,8 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand d-flex" href="{{ url('/') }}">
-                <div><img src="/img/logo.png" alt="Not found!" class="pr-2 border-right" style="width: 50px"></div>
-                <div class="pl-3 pt-2"> Social Network</div>
+            <div><img src="https://img.icons8.com/ios-filled/50/000000/crescent-moon.png" alt="" class="pr-1" style="border-right: 1px solid #333"></div>
+                <div class="pl-2 pt-1"><strong>[ MoonGram ]</strong></div>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
