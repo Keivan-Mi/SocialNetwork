@@ -66,7 +66,12 @@ class PostsController extends Controller
         return redirect('/profile/' . auth()->user()->id);
     }
 
-  
+    public function delete($post_id)
+    {
+        $post = Post::where('id',$post_id)->first();
+        $post->delete();
+        return redirect('/profile/' . auth()->user()->id);
+    }
 
     //show each posts clicked on it
     public function show(\App\Post $post)

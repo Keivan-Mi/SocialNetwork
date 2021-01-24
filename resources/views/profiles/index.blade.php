@@ -48,6 +48,13 @@
                         <a href="/p/{{ $post->id }}">
                             <img src="/storage/{{ $post->image }}" class="w-100"alt="not found">
                         </a>
+                        <div class="mt-2">
+                            @can('delete', $user->profile)
+                            <a href="{{ route('post.delete',['post_id' => $post->id ]) }}">
+                                <img src="https://img.icons8.com/fluent-systems-regular/28/000000/delete-trash--v3.png"/>
+                            </a>
+                            @endcan
+                        </div>
                     </div>
                 </div>
                 @endforeach
