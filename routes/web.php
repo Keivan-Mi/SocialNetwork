@@ -22,10 +22,7 @@ Route::get('/', 'PostsController@index');
 Route::get('/p/create', 'PostsController@create');
 Route::post('/p', 'PostsController@store');
 Route::get('/p/{post}', 'PostsController@show');
-Route::get('/p/delete/{post_id}', [
-    'uses' => 'PostsController@delete',
-    'as' => 'post.delete',
-    'middleware' => 'auth']);
+
 
 //Follow
 Route::post('follow/{user}', 'FollowsController@store');
