@@ -10,14 +10,15 @@ use Intervention\Image\Facades\Image;
 
 class ProfilesController extends Controller
 {
-    public function index(User $user){
+    public function index(User $user)
+    {
         //Used for showing follow or unfolloow
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
 
         //Used to prevent from showing Follow_Button for users
         $ownProfile = (Auth::id() === $user->getAttribute('id')) ? true : false;
 
-        return view('profiles.index', compact('user', 'follows' , 'ownProfile'));
+        return view('profiles.index', compact('user', 'follows', 'ownProfile'));
     }
 
     public function edit(User $user)
@@ -55,7 +56,14 @@ class ProfilesController extends Controller
         } else
             auth()->user()->profile->update($data);
 
-
         return redirect("/profile/{$user->id}");
+    }
+
+    public function delete(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect('/login');
     }
 }
