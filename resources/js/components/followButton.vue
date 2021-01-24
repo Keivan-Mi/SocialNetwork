@@ -9,7 +9,7 @@
         </div>
 
         <!-- Show the number of posts,followers,following -->
-        <div class="d-flex">
+        <div class="d-flex align-items-left">
             <div class="pr-3"><strong>{{this.posts_d}}</strong> posts</div>
             <div class="pr-3"><strong>{{this.followers_d}}</strong> followers</div>
             <div class="pr-3"><strong>{{this.following_d}}</strong> following</div>

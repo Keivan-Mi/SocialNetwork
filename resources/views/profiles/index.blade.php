@@ -40,14 +40,23 @@
             </div>
 
             <!--Show posts (at first, just using 3 images  -->
-            <div class="row pt-5">
+            <div class="container row pt-4 border-top mt-3">
                 <!-- show all posts of this user from DB -->
                 @foreach($user->posts as $post)
-                    <div class="col-4 pb-4">
+                <div class="col-4" >
+                    <div class=" p-2 mb-4 border">
                         <a href="/p/{{ $post->id }}">
-                            <img src="/storage/{{ $post->image }}" class="w-100" alt="Not Found!!!">
+                            <img src="/storage/{{ $post->image }}" class="w-100"alt="not found">
                         </a>
+                        <div class="mt-2">
+                            @can('delete', $user->profile)
+                            <a href="{{ route('post.delete',['post_id' => $post->id ]) }}">
+                                <img src="https://img.icons8.com/fluent-systems-regular/28/000000/delete-trash--v3.png"/>
+                            </a>
+                            @endcan
+                        </div>
                     </div>
+                </div>
                 @endforeach
             </div>
         </div>

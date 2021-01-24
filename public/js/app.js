@@ -37621,7 +37621,7 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "d-flex" }, [
+    _c("div", { staticClass: "d-flex align-items-left" }, [
       _c("div", { staticClass: "pr-3" }, [
         _c("strong", [_vm._v(_vm._s(this.posts_d))]),
         _vm._v(" posts")

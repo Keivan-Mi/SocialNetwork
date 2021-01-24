@@ -6,16 +6,13 @@
         <div class="row">
             <div class="col-8 offset-2">
 
-                <div class="row">
-                    <h1>Add New Post</h1>
-                </div>
                 <div class="form-group row">
                     <!-- new post's caption -->
                     <label for="caption" class="col-md-4 col-form-label">Post Caption</label>
 
                     <input id="caption"
                            type="text"
-                           class="form-control<?php echo e($errors->has('caption') ? ' is-invalid' : ''); ?>"
+                           class=" ml-2 form-control<?php echo e($errors->has('caption') ? ' is-invalid' : ''); ?>"
                            name="caption"
                            value="<?php echo e(old('caption')); ?>"
                            autocomplete="caption" autofocus>
@@ -31,7 +28,7 @@
                     <!-- new post's image -->
                     <label for="image" class="col-md-4 col-form-label">Post Image</label>
 
-                    <input type="file" class="form-control-file" id="image" name="image">
+                    <input type="file" class="form-control-file ml-2" id="image" name="image">
 
                     <?php if($errors->has('image')): ?>
                         <strong><?php echo e($errors->first('image')); ?></strong>
@@ -40,7 +37,7 @@
 
                 <div class="row pt-4">
                     <!-- 'New post' btn -->
-                    <button class="btn btn-primary">Add New Post</button>
+                    <button class="btn  ml-2" style="background-color:black; border:black; color:white">Post</button>
                 </div>
 
             </div>

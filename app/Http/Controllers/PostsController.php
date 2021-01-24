@@ -46,7 +46,7 @@ class PostsController extends Controller
     {
         $data = request()->validate([
             'caption' => 'required',
-            'image' => ['required', 'image'],
+            'image' => ['required'],
         ]);
 
         // store our new posts to directory
@@ -63,6 +63,13 @@ class PostsController extends Controller
             'image' => $imagePath,
         ]);
 
+        return redirect('/profile/' . auth()->user()->id);
+    }
+
+    public function delete($post_id)
+    {
+        $post = Post::where('id',$post_id)->first();
+        $post->delete();
         return redirect('/profile/' . auth()->user()->id);
     }
 
